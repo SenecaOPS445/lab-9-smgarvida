@@ -1,0 +1,57 @@
+---
+- name: Configure OPS445 Linux VM
+  hosts: vmlab
+  become: yes
+  vars:
+    apache_version: 2.6
+    motd_warning: "WARNING: used by ICT faculty/students only.\n"
+    testserver: yes
+  tasks:
+    - name: Update Apache (httpd)
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Install EPEL repository
+      yum:
+        name: epel-release
+        state: present
+
+    - name: Remove tree package
+      yum:
+        name: tree
+        state: absent
+
+    - name: Set hostname
+      hostname:
+        name: smgarvida
+
+    - name: Create new user with sudo access
+      user:
+        name: smgarvida
+        state: present
+        groups: wheel
+        append: yes
+
+    - name: Set up SSH for new user
+      authorized_key:
+        user: smgarvida
+        state: present
+        key: "{{ lookup('file', '/home/student/.ssh/id_rsa.pub') }}"
+
+    - name: Create directory structure for labs
+      file:
+        path: "/home/smgarvida/ops445/lab{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+
