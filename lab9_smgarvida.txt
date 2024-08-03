@@ -2,8 +2,42 @@
 PLAY [Configure OPS445 Linux VM] ***********************************************
 
 TASK [Gathering Facts] *********************************************************
-fatal: [vmlab]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: student@myvmlab.senecapolytechnic.ca: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+ok: [vmlab]
+
+TASK [update-apache] ***********************************************************
+ok: [vmlab]
+
+TASK [restart-apache] **********************************************************
+changed: [vmlab]
+
+TASK [install-epel-missing] ****************************************************
+ok: [vmlab]
+
+TASK [remove-package-'tree'] ***************************************************
+ok: [vmlab]
+
+TASK [set-hostname] ************************************************************
+ok: [vmlab]
+
+TASK [create-new-user-with-sudo-perms] *****************************************
+ok: [vmlab]
+
+TASK [create-smgarvida-sshdirectory] *********************************************
+changed: [vmlab]
+
+TASK [setup-keys-passwordless] *************************************************
+ok: [vmlab]
+
+TASK [setup-labs-directory] ****************************************************
+ok: [vmlab] => (item=1)
+ok: [vmlab] => (item=2)
+ok: [vmlab] => (item=3)
+ok: [vmlab] => (item=4)
+ok: [vmlab] => (item=5)
+ok: [vmlab] => (item=6)
+ok: [vmlab] => (item=7)
+ok: [vmlab] => (item=8)
+ok: [vmlab] => (item=9)
 
 PLAY RECAP *********************************************************************
-vmlab                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
-
+vmlab                      : ok=10   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
