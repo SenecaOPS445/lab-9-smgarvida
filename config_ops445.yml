@@ -1,11 +1,7 @@
 ---
 - name: Configure OPS445 Linux VM
-  hosts: vmlab
+  hosts: smgarvida
   become: yes
-  vars:
-    apache_version: 2.6
-    motd_warning: "WARNING: used by ICT faculty/students only.\n"
-    testserver: yes
   tasks:
     - name: Update Apache (httpd)
       yum:
@@ -29,21 +25,21 @@
     - name: Create new user with sudo access
       user:
         name: smgarvida
-        state: present
         groups: wheel
-        append: yes
+        state: present
 
     - name: Set up SSH for new user
       authorized_key:
         user: smgarvida
         state: present
-        key: "{{ lookup('file', '/home/student/.ssh/id_rsa.pub') }}"
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
     - name: Create directory structure for labs
       file:
         path: "/home/smgarvida/ops445/lab{{ item }}"
         state: directory
-        mode: '0755'
+        owner: smgarvida
+        group: smgarvida
       loop:
         - 1
         - 2
