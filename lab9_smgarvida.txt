@@ -1,0 +1,9 @@
+
+PLAY [Configure OPS445 Linux VM] ***********************************************
+
+TASK [Gathering Facts] *********************************************************
+fatal: [vmlab]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: student@myvmlab.senecapolytechnic.ca: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+
+PLAY RECAP *********************************************************************
+vmlab                      : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+
