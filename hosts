@@ -43,5 +43,6 @@
 ## db-[99:101]-node.example.com
 
 [ops445]
-smgarvida   ansible_host=myvmlab.senecapolytechnic.ca ansible_port=6966
+vmlab ansible_host=myvmlab.senecapolytechnic.ca ansible_port=6966
+
 
