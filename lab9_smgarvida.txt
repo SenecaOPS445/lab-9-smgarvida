@@ -2,42 +2,37 @@
 PLAY [Configure OPS445 Linux VM] ***********************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [vmlab]
+ok: [smgarvida]
 
-TASK [update-apache] ***********************************************************
-ok: [vmlab]
+TASK [Update Apache (httpd)] ***************************************************
+ok: [smgarvida]
 
-TASK [restart-apache] **********************************************************
-changed: [vmlab]
+TASK [Install EPEL repository] *************************************************
+ok: [smgarvida]
 
-TASK [install-epel-missing] ****************************************************
-ok: [vmlab]
+TASK [Remove tree package] *****************************************************
+ok: [smgarvida]
 
-TASK [remove-package-'tree'] ***************************************************
-ok: [vmlab]
+TASK [Set hostname] ************************************************************
+ok: [smgarvida]
 
-TASK [set-hostname] ************************************************************
-ok: [vmlab]
+TASK [Create new user with sudo access] ****************************************
+ok: [smgarvida]
 
-TASK [create-new-user-with-sudo-perms] *****************************************
-ok: [vmlab]
+TASK [Set up SSH for new user] *************************************************
+ok: [smgarvida]
 
-TASK [create-smgarvida-sshdirectory] *********************************************
-changed: [vmlab]
-
-TASK [setup-keys-passwordless] *************************************************
-ok: [vmlab]
-
-TASK [setup-labs-directory] ****************************************************
-ok: [vmlab] => (item=1)
-ok: [vmlab] => (item=2)
-ok: [vmlab] => (item=3)
-ok: [vmlab] => (item=4)
-ok: [vmlab] => (item=5)
-ok: [vmlab] => (item=6)
-ok: [vmlab] => (item=7)
-ok: [vmlab] => (item=8)
-ok: [vmlab] => (item=9)
+TASK [Create directory structure for labs] *************************************
+ok: [smgarvida] => (item=1)
+ok: [smgarvida] => (item=2)
+ok: [smgarvida] => (item=3)
+ok: [smgarvida] => (item=4)
+ok: [smgarvida] => (item=5)
+ok: [smgarvida] => (item=6)
+ok: [smgarvida] => (item=7)
+ok: [smgarvida] => (item=8)
+ok: [smgarvida] => (item=9)
 
 PLAY RECAP *********************************************************************
-vmlab                      : ok=10   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+smgarvida                  : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
